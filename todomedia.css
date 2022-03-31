@@ -1,0 +1,10 @@
+@media screen and (max-width: 767px) {
+  .row_box {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 767px) {
+  .row_box {
+    justify-content: space-between;
+  }
+}

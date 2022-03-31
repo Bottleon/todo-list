@@ -1,0 +1,39 @@
+@import url("./todomedia.css");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Jua", sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.border_bottom {
+  border-bottom: 1px solid gray;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute_bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.absolute_right {
+  position: absolute;
+  right: 0;
+}
+
+.on {
+  background-color: lemonchiffon;
+}
