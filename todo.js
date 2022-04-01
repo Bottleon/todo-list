@@ -25,7 +25,12 @@ window.onload = function () {
   }
 
   function handleAddItemEvent(e) {
-    if (e.key === "Enter" || e.pointerId === 1) {
+    console.log(e.pointerType);
+    if (
+      e.key === "Enter" ||
+      e.pointerType === "mouse" ||
+      e.pointerType === "touch"
+    ) {
       addItem(INPUT_TEXT.value, false);
       INPUT_TEXT.value = "";
     }
@@ -91,7 +96,6 @@ window.onload = function () {
     const removeItemValue = removeItem.value;
     const removeItemParent = removeItem.parentNode;
     removeItemParent.removeChild(removeItem);
-    console.log(removeItemParent.id);
     if (removeItemParent.id === "list-menu") {
       const new_todo = todo_arr.filter(function (ele) {
         return ele.id !== removeItemValue;
@@ -100,8 +104,6 @@ window.onload = function () {
       saveStorage();
     } else {
       const new_todo = todo_complete_arr.filter(function (ele) {
-        console.log(ele.id);
-        console.log(removeItemValue);
         return ele.id !== removeItemValue;
       });
       todo_complete_arr = new_todo;
@@ -170,7 +172,6 @@ window.onload = function () {
         });
       }
     }
-    console.log(todo_arr);
     removeItems.forEach((element) => {
       element.parentNode.removeChild(element);
     });
