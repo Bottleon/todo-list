@@ -9,3 +9,4 @@
 ## css
 - bootstrap사용하여 class속성들 이용
 - nav를 이용하여 검색창 만들기
+- sweetAlert사용하여 알림창 이용
