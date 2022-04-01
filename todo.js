@@ -27,6 +27,7 @@ window.onload = function () {
   function callAddItem() {
     addItem(INPUT_TEXT.value, false);
     INPUT_TEXT.value = "";
+    INPUT_TEXT.focus();
   }
 
   function handleAddItemEvent(e) {
