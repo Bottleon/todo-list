@@ -38,7 +38,7 @@ window.onload = function () {
 
   function addItem(value, complete) {
     if (value === "") {
-      alert("추가할 내용이 없습니다.");
+      Swal.fire("추가할 내용이 없습니다.");
       return;
     }
 
@@ -159,12 +159,14 @@ window.onload = function () {
     const list = LIST_MENU.children;
     let removeItems = [];
     todo_arr = [];
+    let clickTrue = false;
     for (let i = 0; i < list.length; i++) {
       const arr = list[i].className.split(" ");
       const value = list[i].firstChild.innerHTML;
       if (arr[arr.length - 1] === "on") {
         removeItems.push(list[i]);
         addItem(value, true);
+        clickTrue = true;
       } else {
         todo_arr.push({
           item: value,
@@ -172,11 +174,15 @@ window.onload = function () {
         });
       }
     }
-    removeItems.forEach((element) => {
-      element.parentNode.removeChild(element);
-    });
-    saveStorage();
-    location.reload();
+    if (clickTrue) {
+      removeItems.forEach((element) => {
+        element.parentNode.removeChild(element);
+      });
+      saveStorage();
+      location.reload();
+    } else {
+      Swal.fire("완료한 일들이 없습니다.<br> 완료하였으면 클릭해주세요");
+    }
   }
   function saveStorage() {
     STORAGE.setItem(STORAGE_KEY, JSON.stringify(todo_arr));
