@@ -11,7 +11,6 @@ window.onload = function () {
   const STORAGE_COMPLETE_KEY = "todo_complete_items";
   INPUT_TEXT.addEventListener("keypress", handleAddItemEvent);
   BUTTON.addEventListener("click", callAddItem);
-  BUTTON.addEventListener("touchend", callAddItem);
   DELETE_ALL_BTN.addEventListener("click", clearStorageAll);
   SUCCESS_BTN.addEventListener("click", handleSuccessClick);
 
@@ -31,7 +30,6 @@ window.onload = function () {
   }
 
   function handleAddItemEvent(e) {
-    console.log(e.pointerType);
     if (e.key === "Enter") {
       callAddItem();
     }
