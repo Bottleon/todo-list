@@ -32,11 +32,7 @@ window.onload = function () {
 
   function handleAddItemEvent(e) {
     console.log(e.pointerType);
-    if (
-      e.key === "Enter" ||
-      e.pointerType === "mouse" ||
-      e.pointerType === "touch"
-    ) {
+    if (e.key === "Enter") {
       addItem(INPUT_TEXT.value, false);
       INPUT_TEXT.value = "";
     }
