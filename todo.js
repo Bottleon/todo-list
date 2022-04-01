@@ -10,7 +10,8 @@ window.onload = function () {
   const STORAGE_KEY = "todo_items";
   const STORAGE_COMPLETE_KEY = "todo_complete_items";
   INPUT_TEXT.addEventListener("keypress", handleAddItemEvent);
-  BUTTON.addEventListener("click", handleAddItemEvent);
+  BUTTON.addEventListener("click", handleBtnClick);
+  BUTTON.addEventListener("touchstart", handleBtnClick);
   DELETE_ALL_BTN.addEventListener("click", clearStorageAll);
   SUCCESS_BTN.addEventListener("click", handleSuccessClick);
 
@@ -22,6 +23,11 @@ window.onload = function () {
 
   if (STORAGE.getItem(STORAGE_KEY) !== null) {
     loadStorage();
+  }
+
+  function handleBtnClick() {
+    addItem(INPUT_TEXT.value, false);
+    INPUT_TEXT.value = "";
   }
 
   function handleAddItemEvent(e) {
